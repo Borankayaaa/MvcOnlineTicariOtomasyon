@@ -23,7 +23,7 @@ namespace MvcOnlineTicariOtomasyon.Models.Siniflar
         public short Stok  { get; set;}
         public decimal AlisFiyat { get; set; } 
         public decimal SatisFiyat { get; set; } 
-        public bool Durum  { get; set; } //Üürn kritik seviye olursa 
+        public bool Durum  { get; set; } //Ürün kritik seviye olursa 
 
         [Column(TypeName = "Varchar")]
         [StringLength(250)]

@@ -1,4 +1,5 @@
-﻿
+﻿@using MvcOnlineTicariOtomasyon.Models.Siniflar
+@model List<Personel>
 @{
     ViewBag.Title = "DepartmanDetay";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -6,8 +7,10 @@
 <br />
 <h2>Departman Detay Sayfası</h2>
 <br />
-<div style="background-color:darkgray">Deneme</div>
-<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Departman Adı: @ViewBag.d</li>
+</ol>
+
 <table class="table table-hover">
     <tr>
         <th>Personel</th>
@@ -16,19 +19,17 @@
         <th>Görsel</th>
         <th>Satışlar</th>
     </tr>
-    <tr>
-        <td>1</td>
-        <td>Boran</td>
-        <td>Kaya</td>
-        <td>Test</td>
-        <td><a href="#" class="btn btn-default" style="background-color:cornflowerblue">Satışlar</a></td>
-    </tr>
-    <tr>
-        <td>4</td>
-        <td>Zeynep</td>
-        <td>Başoğlu</td>
-        <td>Test</td>
-        <td><a href="#" class="btn btn-default" style="background-color:cornflowerblue">Satışlar</a></td>
-    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Personelid</td>
+            <td>@x.PersonelAd</td>
+            <td>@x.PersonelSoyad</td>
+            <td>@x.PersonelGorsel</td>
+            <td><a href="/Departman/DepartmanPersonelSatis/@x.Personelid" class="btn btn-default" style="background-color:cornflowerblue">Satışlar</a></td>
+        </tr>
+    }
+
+
 </table>
 
